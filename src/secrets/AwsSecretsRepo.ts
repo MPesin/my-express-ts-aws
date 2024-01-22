@@ -1,9 +1,7 @@
 import {GetSecretValueCommand, SecretsManagerClient} from "@aws-sdk/client-secrets-manager";
 import SecretsRepo from "./SecretsRepo";
 import envVars from "../infrastructure/envVars";
-import {injectable} from "inversify";
 
-@injectable()
 export default class AwsSecretsRepo implements SecretsRepo {
   async getJwtSecret(): Promise<string> {
     const jwtSecret = envVars.jwtSecretName;

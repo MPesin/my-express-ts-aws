@@ -1,1 +1,1 @@
-export {jwtMiddleware} from './jwtService';
+export {JwtService} from './JwtService';
