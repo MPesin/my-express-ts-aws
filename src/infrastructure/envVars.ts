@@ -3,7 +3,7 @@ const envVars = {
   jwtSecretName: process.env.JWT_SECRET_NAME || "",
   dbUsername: process.env.DB_USERNAME || "",
   awsRegion: process.env.AWS_REGION || "",
-  logDomain: process.env.LOG_DOMAIN || "VolunteerService"
+  logDomain: process.env.LOG_DOMAIN || ""
 };
 
 export default envVars;
