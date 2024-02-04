@@ -1,3 +1,3 @@
 import ErrorResponse from "./ErrorResponse";
 
-export {ErrorResponse};
+export {ErrorResponse as default};
