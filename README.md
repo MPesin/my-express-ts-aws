@@ -17,6 +17,37 @@ The service uses [`aws-sdk` ___v3___](https://docs.aws.amazon.com/AWSJavaScriptS
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 
+## Getting Started
+
+1. Installing packages from `package.json`
+
+```
+npm install
+```
+
+2. Starting the service
+```
+npm start
+```
+
+3. Starting in _development_ mode with [`nodemon`](https://www.npmjs.com/package/nodemon)
+```
+npm run dev
+```
+
+4. Testing
+```
+npm test
+```
+
+## Handling Errors
+This service extends the `Error` object to a custom `ErrorResponse` to handle all the errors in the system.
+Please make sure that every error thrown to the user in an instance of `ErrorResponse`.
+
+> [!IMPORTANT]
+> The LAST middleware that is bind to the Express app MUST ALWAYS BE `errorsMiddleware`. 
+> You can use this middleware to manage the errors handling.
+
 ## Security
 
 ### Cross-Origin Region Sharing (CORS)
