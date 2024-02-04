@@ -6,7 +6,7 @@ import hpp from 'hpp';
 import {rateLimit} from 'express-rate-limit';
 
 import {envVars} from "./infrastructure";
-import Logger, {GetLogger} from "./logs";
+import Logger, {GetLogger} from "./logging";
 import {asyncMiddleware, errorsMiddleware, authMiddleware} from "./middlewares";
 
 const logger: Logger = GetLogger();
@@ -33,10 +33,11 @@ app.use(limiter);
 app.use(asyncMiddleware(authMiddleware));
 app.use(errorsMiddleware);
 
-app.get('/', (req, res) => {
-  res.send("test")
-});
-
-app.listen(port, () => {
+const server = app.listen(port, () => {
   logger.logInfo(`now listening on port ${port}`);
 })
+
+process.on('unhandledRejection', (err: any, promise: Promise<any>): void => {
+  logger.logError(`Unhandled Rejection at: ${promise}, reason: ${err}`);
+  server.close(() => process.exit(1));
+});
