@@ -3,7 +3,10 @@ import ErrorResponse from "../errors";
 import {GetLogger} from "../logs";
 
 export default function errorsMiddleware(err: Error, req: Request, res: Response, next: NextFunction): void {
-  const error = new ErrorResponse(500, `Internal Server Error: ${err.message}`)
+  const error = err instanceof ErrorResponse ?
+      err :
+      new ErrorResponse(500, `Internal Server Error: ${err.message}`);
+
   res.status(error.statusCode)
       .json({
         success: false,
