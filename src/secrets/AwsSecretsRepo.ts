@@ -34,7 +34,7 @@ export default class AwsSecretsRepo implements SecretsRepo {
       throw error;
     }
     const secretResponse = JSON.parse(response.SecretString ?? "");
-    return secretResponse.password;
+    return secretResponse[secretName];
   }
 
 }
