@@ -8,8 +8,8 @@
   "main": "server.ts",
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "start": "NODE_ENV=production ts-node -r dotenv/config src/server.ts dotenv_config_path=./config/config.env",
-    "dev": "nodemon -r dotenv/config dotenv_config_path=./config/config.env"
+    "start": "NODE_ENV=production ts-node -r dotenv/config src/server.ts dotenv_config_path=./config/.env",
+    "dev": "nodemon -r dotenv/config src/server.ts dotenv_config_path=./config/.env"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.6",
