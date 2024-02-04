@@ -1,7 +1,7 @@
 import jwt, {JwtPayload} from "jsonwebtoken";
 import ErrorResponse from "../errors";
 import {NextFunction, Request, Response} from "express";
-import Logger, {GetLogger} from "../logs";
+import Logger, {GetLogger} from "../logging";
 import SecretsRepo, {AwsSecretsRepo} from "../secrets";
 
 const logger: Logger = GetLogger();

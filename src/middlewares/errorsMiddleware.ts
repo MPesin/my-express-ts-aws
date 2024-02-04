@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from 'express';
 import ErrorResponse from "../errors";
-import {GetLogger} from "../logs";
+import {GetLogger} from "../logging";
 
 export default function errorsMiddleware(err: Error, req: Request, res: Response, next: NextFunction): void {
   const error = err instanceof ErrorResponse ?

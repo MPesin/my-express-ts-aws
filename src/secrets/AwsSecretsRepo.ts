@@ -1,7 +1,7 @@
 import {GetSecretValueCommand, SecretsManagerClient} from "@aws-sdk/client-secrets-manager";
 import SecretsRepo from "./SecretsRepo";
 import envVars from "../infrastructure/envVars";
-import Logger, {GetLogger} from "../logs";
+import Logger, {GetLogger} from "../logging";
 
 export default class AwsSecretsRepo implements SecretsRepo {
   private readonly _logger: Logger = GetLogger();
