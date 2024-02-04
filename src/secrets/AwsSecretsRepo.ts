@@ -1,8 +1,11 @@
 import {GetSecretValueCommand, SecretsManagerClient} from "@aws-sdk/client-secrets-manager";
 import SecretsRepo from "./SecretsRepo";
 import envVars from "../infrastructure/envVars";
+import Logger, {GetLogger} from "../logs";
 
 export default class AwsSecretsRepo implements SecretsRepo {
+  private readonly _logger: Logger = GetLogger();
+
   async getJwtSecret(): Promise<string> {
     const jwtSecret = envVars.jwtSecretName;
     return jwtSecret ? await this.getSecret(jwtSecret) : "";
@@ -19,7 +22,6 @@ export default class AwsSecretsRepo implements SecretsRepo {
     });
 
     let response;
-
     try {
       response = await client.send(
           new GetSecretValueCommand({
@@ -28,9 +30,10 @@ export default class AwsSecretsRepo implements SecretsRepo {
           })
       );
     } catch (error) {
+      this._logger.logError(`Failed to get secret from AWS: ${error}`);
       throw error;
     }
-    const secretResponse = JSON.parse(response.SecretString || "");
+    const secretResponse = JSON.parse(response.SecretString ?? "");
     return secretResponse.password;
   }
 
