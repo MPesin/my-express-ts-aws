@@ -1,15 +1,16 @@
 {
-  "name": "volunteer-service",
+  "name": "my-express-ts-aws",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Basic Express TS Service",
+  "author": "Michael Pesin <mikelpesin@gmail.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/MPesin/my-express-ts-aws",
   "main": "server.ts",
   "scripts": {
     "test": "NODE_ENV=test jest",
     "start": "NODE_ENV=production ts-node -r dotenv/config src/server.ts dotenv_config_path=./config/config.env",
     "dev": "nodemon -r dotenv/config dotenv_config_path=./config/config.env"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.17",
