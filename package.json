@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.491.0",
-    "aws-sdk": "^2.1550.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
