@@ -37,7 +37,9 @@ const server = app.listen(port, () => {
   logger.logInfo(`now listening on port ${port}`);
 })
 
-process.on('unhandledRejection', (err: any, promise: Promise<any>): void => {
+process.on('unhandledRejection', (err, promise: Promise<any>): void => {
   logger.logError(`Unhandled Rejection at: ${promise}, reason: ${err}`);
   server.close(() => process.exit(1));
 });
+
+export default server;

@@ -13,7 +13,6 @@ function CreateLogger() {
   switch (envVars.environment) {
     case "development":
     case "production":
-    case "test":
     default:
       logger = new ConsoleLogger();
   }

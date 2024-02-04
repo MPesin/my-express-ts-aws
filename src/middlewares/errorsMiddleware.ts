@@ -9,8 +9,10 @@ export default function errorsMiddleware(err: Error, req: Request, res: Response
 
   res.status(error.statusCode)
       .json({
-        success: false,
-        error: error.message
+        error: {
+          statusCode: error.statusCode,
+          message: error.message
+        }
       });
 
   GetLogger().logError(err.stack ?? err.message);
