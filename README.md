@@ -4,7 +4,9 @@
 Please feel free to use this project as a starting point for your next Nodejs Express service to be written in TypeScript.
 
 ### Setting the Environment Variables
-The project uses the [`dotenv`](https://www.npmjs.com/package/dotenv) package to load environment variables on startup. The `.env` file can be found in the `./config/` folder. Set all the variables __before__ starting the service. Use the template file `.env.TODO` in the `config/` folder, and __rename__ him to `.env`.
+The project uses the [`dotenv`](https://www.npmjs.com/package/dotenv) package to load environment variables on startup for ___development mode___. The `.env` file can be found in the `./config/` folder. Set all the variables __before__ starting the service. Use the template file `.env.TODO` in the `config/` folder, and __rename__ him to `.env`.
+
+For ___production mode___ make sure all the varibales in `.env.TODO` are set in your production environment.
 
 ## What do we have here?
 - All the basic configurations to get you started.
@@ -13,7 +15,7 @@ The project uses the [`dotenv`](https://www.npmjs.com/package/dotenv) package to
 - Support for ___AWS Secrets Manager___ (see [AWS Credentials Settings](#aws-credentials-settings)), or if you prefer to use a different service just implement the interface `SecretsRepo`.
 
 ## AWS Credentials Settings
-The service uses [`aws-sdk` ___v3___](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) package. The credentials for the AWS SDK are configured in the environment variables. All you need to do is to set the following environment variables in the the file `./config/.env`:
+The service uses [`aws-sdk` ___v3___](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) package. The credentials for the AWS SDK are configured in the environment variables. All you need to do is to set the following environment variables (in ___development mode___ you can set them in the the file `./config/.env`):
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 
